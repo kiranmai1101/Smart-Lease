@@ -1,0 +1,267 @@
+<head>   
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/app.css" >
+</head>
+<body>
+    <nav class="navbar">
+        <a class="navbar-brand" style="color:white;flex:auto;font-size: xxx-large;" href="#">
+            <!-- <div class="logo-image">
+                <img src="RentIT.PNG" class="img-fluid">
+            </div>               -->
+          <img class="logo-image" src="RentIT.PNG" class="img-fluid" >
+          <span class="marginforlogo">RentIT Application</span>
+        </a>
+    </nav>
+
+    <div class="row justify-content-md-center">
+        <p id="decentralized_address" class="font-italic" style="font-size:150%;margin-top: 60px;"> Select your role: </p>
+    </div>
+
+ <div class="container">
+  <section class="cms-boxes">
+    <div class="container-fluid">
+      <div class="row">
+
+        <!-- <div class="col-md-4 cms-boxes-outer" onclick='alert("youClickedMe!");'> -->
+        <div class="col-md-4 cms-boxes-outer" onclick="adminFunction()">
+          <div class="cms-boxes-items cms-admin">
+            <div class="boxes-align">
+              <div class="small-box">
+                <i class="fa fa-4x fa-laptop">&nbsp;</i>
+                <h2>Admin</h2>
+                <p>Login here if you are the Admin!</p>
+              </div>
+              <!-- <button class="btn btn-secondary btn-lg">Admin</button> -->
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-md-4 cms-boxes-outer"  onclick="landlordFunction()">
+          <div class="cms-boxes-items cms-landlord">
+            <div class="boxes-align">
+              <div class="small-box">
+                <i class="fa fa-4x fa-cog">&nbsp;</i>
+                <h2>Landlord</h2>
+                <p>Landlord can login here!</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4 cms-boxes-outer" onclick="registerFunction()">
+          <div class="cms-boxes-items cms-tenant">
+            <div class="boxes-align">
+              <div class="small-box">
+                <i class="fa fa-4x fa-arrows-alt" aria-hidden="true"></i>
+                <h2>Tenant</h2>
+                <p>Tenants can register here!</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p>
+      <p> 
+    </div>
+  </section>
+</div>
+
+    <div id="adminDiv" style="display:none">
+        <div class="card card-body justify-content-md-center">
+            <div>
+                <div class="form-group row justify-content-md-center" style="margin-top:20px">
+                    <p class="font-italic" > Register Landlord's here </p>
+                </div>
+                <div class="card card-body justify-content-md-center">
+                    <div class="form-group row">
+                        <label for="address" class="col-sm-2 col-form-label">Address</label>
+                            <div class="col-sm-10">
+                            <input class="form-control" id="landlord_addr" placeholder="Enter address">
+                            </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-10">
+                            <button class="btn btn-secondary" onclick="register(document.getElementById('landlord_addr').value)">Register Landlords</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <hr/>
+        </div>
+    </div>
+
+    <div id="landlordDiv" style="display:none">
+        <div class="card card-body justify-content-md-center">
+            <div>
+                <div class="form-group row justify-content-md-center" style="margin-top:20px">
+                    <p class="font-italic" > Propose Lease Agreement </p>
+                </div>            
+                <div class="card card-body justify-content-md-center">
+                    <div class="form-group row">
+                        <label for="string" class="col-sm-2 col-form-label">Lease Agreement Hash Value</label>
+                            <div class="col-sm-10">
+                            <input class="form-control" id="hash_value" placeholder="Enter hash value">
+                            </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-10">
+                            <button class="btn btn-secondary" onclick="propose_lease(document.getElementById('hash_value').value)">Propose Lease Agreement</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <hr/>
+            <div>
+                <div class="form-group row justify-content-md-center" style="margin-top:20px">
+                    <p class="font-italic" > Register Tenants Here! </p>
+                </div>
+                <div class="card card-body justify-content-md-center">
+                    <div class="form-group row">
+                        <label for="Tenant address" class="col-sm-2 col-form-label">Tenant Address</label>
+                            <div class="col-sm-10">
+                            <input class="form-control" id="tenant_addr" placeholder="Enter address">
+                            </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="House address" class="col-sm-2 col-form-label">House Address</label>
+                            <div class="col-sm-10">
+                            <input class="form-control" id="house_addr" placeholder="Enter House address">
+                            </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="Rent Amount" class="col-sm-2 col-form-label">Rent Amount</label>
+                            <div class="col-sm-10">
+                            <input class="form-control" id="rent_amount" placeholder="Enter Rent Amount">
+                            </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="Deposit Amount" class="col-sm-2 col-form-label">Deposit Amount</label>
+                            <div class="col-sm-10">
+                            <input class="form-control" id="deposit_amount" placeholder="Enter Deposit Amount">
+                            </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="Late Rent Fee" class="col-sm-2 col-form-label">Late Rent fee</label>
+                            <div class="col-sm-10">
+                            <input class="form-control" id="late_rent_fee" placeholder="Enter Late Rent Fee Amount">
+                            </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-10">
+                            <button class="btn btn-secondary" onclick="registerTenants()">Register Tenant</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr/>
+
+            <div>
+                <div class="form-group row justify-content-md-center" style="margin-top:20px">
+                    <p class="font-italic" > Settle Payment of Tenants </p>
+                </div>
+                <div class="card card-body justify-content-md-center">
+                    <div class="form-group row">
+                        <label for="address" class="col-sm-2 col-form-label">Address</label>
+                            <div class="col-sm-10">
+                            <input class="form-control" id="settle_tenant_addr" placeholder="Enter address">
+                            </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-10">
+                            <button class="btn btn-secondary" onclick="settleTenant(document.getElementById('settle_tenant_addr').value)">Settle Tenant</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="tenantDiv" style="display:none">
+
+        <div class="card card-body justify-content-md-center">
+      
+            <div>
+                <div class="form-group row justify-content-md-center">
+                    <p class="font-italic" > Sign Contract</p>
+                </div>
+                <div class="col-sm-10">
+                    <p id="display_hash" class="font-italic" style="font-size:100%;margin-top: 60px;"> Hash Value is: </p>
+                    <button class="btn btn-secondary" onclick="displayHash()">Display Lease Agreement Hash</button>
+                </div>
+                <div class="col-sm-10">
+                    <button class="btn btn-secondary" style= "margin-top: 20px"onclick="signContract()">Sign Contract</button>
+                </div>
+            </div>
+            <hr/>
+
+            <div>
+                <div class="form-group row justify-content-md-center">
+                    <p class="font-italic" > Display House Details</p>
+                </div>
+                <div class="col-sm-10">
+                    <p class="font-italic" style="font-size:100%;margin-top: 20px;"> House address: </p>
+                    <p id="house" class="font-italic" style="font-size:100%;margin-top: 20px;"></p> 
+                    <p class="font-italic" style="font-size:100%;margin-top: 20px;"> Rent Amount: </p>
+                    <p id="rent_amt" class="font-italic" style="font-size:100%;margin-top: 20px;"></p>
+                    <p class="font-italic" style="font-size:100%;margin-top: 20px;"> Deposit Amount: </p>
+                    <p id="deposit_amt" class="font-italic" style="font-size:100%;margin-top: 20px;"></p>
+                    <p class="font-italic" style="font-size:100%;margin-top: 20px;"> Late Rent Fee: </p>
+                    <p id="late_fee" class="font-italic" style="font-size:100%;margin-top: 20px;"></p>
+                    <p class="font-italic" style="font-size:100%;margin-top: 20px;"> Has Signed Lease Flag: </p>
+                    <p id="signed_lease" class="font-italic" style="font-size:100%;margin-top: 20px;"></p>
+                    <button class="btn btn-secondary" onclick="displayHouseDetails()">Display House Details</button>
+                </div>
+            </div>
+
+            <hr/>
+            <div>
+                <div class="form-group row justify-content-md-center">
+                    <p class="font-italic" > Pay Deposit</p>
+                </div>
+                <div class="form-group row">
+                    <label for="deposit" class="col-sm-2 col-form-label">Deposit Amount</label>
+                        <div class="col-sm-10">
+                        <input class="form-control" id="deposit" placeholder="Enter Deposit Amount">
+                        </div>
+                </div>      
+                <div class="col-sm-10">
+                    <button class="btn btn-secondary" onclick="payDeposit(document.getElementById('deposit').value+'00')">Pay Deposit</button>
+                </div>
+            </div>
+
+            <hr/>
+            <div>
+                <div class="form-group row justify-content-md-center">
+                    <p class="font-italic" > Check Late Fee Payment</p>
+                </div>
+      
+                <div class="col-sm-10">
+                    <button class="btn btn-secondary" onclick="checkLatePayment()">Check Late Payment</button>
+                </div>
+            </div>
+            <hr/>
+
+            <div>
+                <div class="form-group row justify-content-md-center">
+                    <p class="font-italic" > Pay Rent</p>
+                </div>
+                <div class="form-group row">
+                    <label for="deposit" class="col-sm-2 col-form-label">Rent Amount</label>
+                        <div class="col-sm-10">
+                        <input class="form-control" id="rent" placeholder="Enter Rent Amount">
+                        </div>
+                </div>      
+                <div class="col-sm-10">
+                    <button class="btn btn-secondary" onclick="payRent(document.getElementById('rent').value+'00')">Pay Rent</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.0.0-beta.37/dist/web3.min.js"></script>
+<script src="js/app.js"></script>

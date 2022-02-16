@@ -1,0 +1,84 @@
+.navbar{
+    
+  background-color: rgb(4, 53, 85) !important;
+}
+
+body{
+  background-color:whitesmoke;
+} 
+
+section.cms-boxes .cms-boxes-outer {
+text-align: left;
+margin-bottom: 6px;
+padding: 0 3px;
+}
+section.cms-boxes .cms-boxes-outer .cms-boxes-items {
+height: 300px;
+display: table;
+width: 100%;
+}
+section.cms-boxes .cms-boxes-outer .cms-boxes-items p {
+color: #fff;
+}
+section.cms-boxes .cms-admin {
+background-color: #5b99d6;
+margin-top: 60px;
+}
+
+section.cms-boxes .cms-landlord {
+background-color: #52a7b6;
+margin-top: 60px;
+}
+
+section.cms-boxes .cms-tenant {
+background-color: #585cc4;
+margin-top: 60px;
+}
+
+section.cms-boxes .boxes-align {
+display: table-cell;
+vertical-align: middle;
+}
+
+section.cms-boxes .small-box, 
+section.cms-boxes .large-box {
+max-width: 350px;
+margin: 0 auto;
+text-align: center;
+}
+section.cms-boxes .cms-boxes-items h2 {
+font-size: 35px;
+color: #fff;
+font-weight: 400;
+line-height: 37px;
+text-align: center;
+margin: 20px 0 10px;
+text-transform: uppercase;
+}
+
+section.cms-boxes .cms-boxes-items:hover {
+opacity: .2;
+cursor: pointer;
+} 
+
+.btn {
+background-color: rgb(4, 53, 85); /* Green */
+border: none;
+color: white;
+padding: 15px 32px;
+text-align: center;
+text-decoration: none;
+display: inline-block;
+font-size: 16px;
+}
+.logo-image{
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-top: 5px;
+  margin-right:70px;
+}
+.marginforlogo{
+  margin-left:360px;
+}
